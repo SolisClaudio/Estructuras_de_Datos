@@ -5,7 +5,7 @@ import Excepciones.EmptyQueueException;
 public class ColaEnlazada<E> implements Queue<E> {
 	protected int size;
 	protected Nodo<E> head, tail;
-	
+
 	public ColaEnlazada() {
 		size= 0;
 		head= new Nodo<E>(null,null);
@@ -15,7 +15,7 @@ public class ColaEnlazada<E> implements Queue<E> {
 		if(size == 0) throw new EmptyQueueException("Error, no se puede obtener el frente de una cola vacia");
 		return head.getElemento();
 	}
-	
+
 	public E dequeue() throws EmptyQueueException{
 		if(size == 0) throw new EmptyQueueException("Error, no se puede obtener el frente de una cola vacia");
 		Nodo<E> aux= head;

@@ -2,7 +2,7 @@ package TDAPila;
 import Excepciones.EmptyStackException;
 /**
  * Interface Stack
- * @author Cátedra de Estructuras de Datos, Departamento de Cs. e Ing. de la Computación, UNS.
+ * @author Cï¿½tedra de Estructuras de Datos, Departamento de Cs. e Ing. de la Computaciï¿½n, UNS.
  */
 
 public interface Stack<E> {
@@ -14,15 +14,15 @@ public interface Stack<E> {
 	public int size();
 
 	/**
-	 * Consulta si la pila está vacía.
-	 * @return Verdadero si la pila está vacía, falso en caso contrario.
+	 * Consulta si la pila estï¿½ vacï¿½a.
+	 * @return Verdadero si la pila estï¿½ vacï¿½a, falso en caso contrario.
 	 */
 	public boolean isEmpty();
 
 	/**
 	 * Examina el elemento que se encuentra en el tope de la pila.
 	 * @return Elemento que se encuentra en el tope de la pila.
-	 * @throws EmptyStackException si la pila está vacía. 
+	 * @throws EmptyStackException si la pila estï¿½ vacï¿½a. 
 	 */
 	public E top()throws EmptyStackException;
 
@@ -35,7 +35,7 @@ public interface Stack<E> {
 	/**
 	 * Remueve el elemento que se encuentra en el tope de la pila.
 	 * @return Elemento removido.
-	 * @throws EmptyStackException si la pila está vacía. 
+	 * @throws EmptyStackException si la pila estï¿½ vacï¿½a. 
 	 */
-	public E pop() throws EmptyStackException;
+	public E pop()throws EmptyStackException;
 }

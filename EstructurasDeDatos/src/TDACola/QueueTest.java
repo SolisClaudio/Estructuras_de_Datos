@@ -95,7 +95,8 @@ public class QueueTest {
 		}
 	  
 /*_______________________TESTEAMOS EL METODO enqueue() y dequeue()_____________________________*/
-	  @Test public void enqueueDequeue()
+	  @SuppressWarnings("removal")
+	@Test public void enqueueDequeue()
   {
 	  c.enqueue(n1);
 	  c.enqueue(n2);

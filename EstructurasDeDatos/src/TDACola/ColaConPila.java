@@ -31,9 +31,9 @@ public class ColaConPila<E> implements Queue<E> {
 	
 	public E dequeue()  throws EmptyQueueException{
 		if(pila.isEmpty()) throw new EmptyQueueException("Error, no se puede desapilar de una cola vacia");
-		E retorno=null;
+		E retorno= null;
 		try { 
-			retorno = pila.pop();
+			retorno= pila.pop();
 		}
 		catch (EmptyStackException e) { e.printStackTrace(); } 
 		return retorno;
@@ -41,9 +41,9 @@ public class ColaConPila<E> implements Queue<E> {
 
 	public E front() throws EmptyQueueException{
 		if(pila.isEmpty()) throw new EmptyQueueException("Error, no se puede desapilar de una cola vacia");
-		E retorno=null;
+		E retorno= null;
 		try { 
-			retorno = pila.top();
+			retorno= pila.top();
 		}
 		catch (EmptyStackException e) { e.printStackTrace(); } 
 		return retorno;

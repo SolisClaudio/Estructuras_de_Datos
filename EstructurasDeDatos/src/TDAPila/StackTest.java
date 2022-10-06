@@ -1,9 +1,9 @@
 
 /**
  * Class: StackTest
- * @author María Luján Ganuza (mlg@cs.uns.edu.ar)
+ * @author Marï¿½a Lujï¿½n Ganuza (mlg@cs.uns.edu.ar)
  *         Estructuras de Datos _ Primer Cuatrimestre 2013
- *         Departamento de Cs. e Ing. de la Computación.
+ *         Departamento de Cs. e Ing. de la Computaciï¿½n.
  *  @version: 2.0
  */
 
@@ -38,13 +38,13 @@ public class StackTest {
 	
 	@Test public void size1()
 		{
-			assertTrue("Tamaño de la pila justo después de ser creada != 0",s.size() == 0);
+			assertTrue("Tamaï¿½o de la pila justo despuï¿½s de ser creada != 0",s.size() == 0);
 		  s.push(n1);
-			assertTrue("Tamaño de la pila luego de apilar una vez != 1", s.size() == 1);
+			assertTrue("Tamaï¿½o de la pila luego de apilar una vez != 1", s.size() == 1);
 		  s.push(n2);
-			assertTrue("Tamaño de la pila luego de apilar dos veces != 2", s.size() == 2);
+			assertTrue("Tamaï¿½o de la pila luego de apilar dos veces != 2", s.size() == 2);
 		  s.push(n3);
-			assertTrue("Tamaño de la pila luego de apilar tres veces != 3", s.size() == 3);
+			assertTrue("Tamaï¿½o de la pila luego de apilar tres veces != 3", s.size() == 3);
 		 }
 
 	@Test public void size2()
@@ -54,25 +54,25 @@ public class StackTest {
 		  s.push(n3);
 		  try{
 			  s.pop();
-			  assertTrue("El tamaño de la pila luego de apilar 3 veces y desapilar 1 vez != 2", s.size() == 2);
+			  assertTrue("El tamaï¿½o de la pila luego de apilar 3 veces y desapilar 1 vez != 2", s.size() == 2);
 			  s.pop();
-			  assertTrue("El tamaño de la pila luego de apilar 3 veces y desapilar 2 veces != 1", s.size() == 1);
+			  assertTrue("El tamaï¿½o de la pila luego de apilar 3 veces y desapilar 2 veces != 1", s.size() == 1);
 			  s.pop();
-			  assertTrue("El tamaño de la pila luego de apilar 3 veces y desapilar 3 veces != 0", s.size() == 0);
-		  	} catch (EmptyStackException e){ fail("Al desapilar en una pila con elementos lanza la excepción EmptyStackException"); }
+			  assertTrue("El tamaï¿½o de la pila luego de apilar 3 veces y desapilar 3 veces != 0", s.size() == 0);
+		  	} catch (EmptyStackException e){ fail("Al desapilar en una pila con elementos lanza la excepciï¿½n EmptyStackException"); }
 		}
 	
 	/*_______________________TESTEAMOS EL METODO isEmpty()_____________________________*/
 	
 	  @Test public void isEmpty()
 	  {
-	    	assertTrue("La pila no está vacía justo después de ser creada", s.isEmpty());
+	    	assertTrue("La pila no estï¿½ vacï¿½a justo despuï¿½s de ser creada", s.isEmpty());
 		    s.push(n1);
-			assertFalse("La pila está vacía justo después de apilar un elemento", s.isEmpty());
+			assertFalse("La pila estï¿½ vacï¿½a justo despuï¿½s de apilar un elemento", s.isEmpty());
 			try{
 				s.pop();
-				assertTrue("La pila no está vacía luego de desapilar el único elemento que contenía", s.isEmpty());
-				} catch (EmptyStackException e){fail("Al desapilar en una pila con un elemento lanza la excepción EmptyStackException");}
+				assertTrue("La pila no estï¿½ vacï¿½a luego de desapilar el ï¿½nico elemento que contenï¿½a", s.isEmpty());
+				} catch (EmptyStackException e){fail("Al desapilar en una pila con un elemento lanza la excepciï¿½n EmptyStackException");}
 	  }
  
 	  /*_______________________TESTEAMOS EL METODO top()_____________________________*/
@@ -80,7 +80,7 @@ public class StackTest {
 	  @Test public void top()
 		{try {
 		    s.top();
-	        fail("Al ver el tope de una pila vacía (de Strings) no lanza la excepción EmptyStackException");
+	        fail("Al ver el tope de una pila vacï¿½a (de Strings) no lanza la excepciï¿½n EmptyStackException");
 	    } catch (EmptyStackException e){}
 		  try{
 			  s.push(n1);
@@ -89,7 +89,7 @@ public class StackTest {
 			  assertSame("Tope 2", n2,s.top());
 			  s.push(n3);
 			  assertSame("Tope 3", n3,s.top());
-		  }catch (EmptyStackException e) { fail("Al ver el tope de una pila con elementos lanza la excepción EmptyStackException");}
+		  }catch (EmptyStackException e) { fail("Al ver el tope de una pila con elementos lanza la excepciï¿½n EmptyStackException");}
 		
 		}
 	  
@@ -103,12 +103,12 @@ public class StackTest {
 		  assertSame("primer apilada", n3,s.pop());
 		  assertSame("segunda apilada",n2,s.pop());
 		  assertSame("tercer apilada", n1,s.pop());
-		  assertTrue("luego de 3 apiladas seguidas de 3 desapiladas, tamaño != 0", s.size() == 0);
-	  }catch (EmptyStackException e) {fail("Al desapilar en una pila con elementos lanza la excepción EmptyStackException"); }
+		  assertTrue("luego de 3 apiladas seguidas de 3 desapiladas, tamaï¿½o != 0", s.size() == 0);
+	  }catch (EmptyStackException e) {fail("Al desapilar en una pila con elementos lanza la excepciï¿½n EmptyStackException"); }
       
 	  try {
 		  s.pop();
-		  fail("Al desapilar en una pila vacía (de Strings) no lanza la excepción EmptyStackException");
+		  fail("Al desapilar en una pila vacï¿½a (de Strings) no lanza la excepciï¿½n EmptyStackException");
 	  } catch (EmptyStackException e){}
     
 	  for (int i=0; i<1000; i++)
@@ -116,11 +116,11 @@ public class StackTest {
 	  try{
 	  for (int i=999; i>=0; i--)
 		  assertEquals("al desapilar "+i,String.valueOf(i),s.pop());
-	  }catch (EmptyStackException e){ fail("Al desapilar en una pila vacía con elementos lanza la excepción EmptyStackException");}
-	  assertTrue("luego de 1000 apiladas y 1000 desapiladas, tamaño != 0", s.size() == 0);
+	  }catch (EmptyStackException e){ fail("Al desapilar en una pila vacï¿½a con elementos lanza la excepciï¿½n EmptyStackException");}
+	  assertTrue("luego de 1000 apiladas y 1000 desapiladas, tamaï¿½o != 0", s.size() == 0);
       try {
     	  s.pop();
-	      fail("al desapilar en una pila vacía (de enteros) no lanza la excepción EmptyStackException");
+	      fail("al desapilar en una pila vacï¿½a (de enteros) no lanza la excepciï¿½n EmptyStackException");
 	  } catch (EmptyStackException e){}
 }
  
