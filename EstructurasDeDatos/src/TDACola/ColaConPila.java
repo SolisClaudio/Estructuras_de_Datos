@@ -1,16 +1,21 @@
 package TDACola;
+
 import TDAPila.Stack;
 import TDAPila.PilaEnlazada;
 import Excepciones.EmptyStackException;
 import Excepciones.EmptyQueueException;
+
 public class ColaConPila<E> implements Queue<E> {
 	Stack<E> pila;
 	
 	public ColaConPila() {
-		pila=new PilaEnlazada<E>();
+		pila= new PilaEnlazada<E>();
 	}
+	
 	public int size() { return pila.size(); } 
+	
 	public boolean isEmpty() { return pila.isEmpty(); }
+	
 	public void enqueue(E element){
 		try { 
 			Stack<E> aux = new PilaEnlazada<E>();
@@ -23,6 +28,7 @@ public class ColaConPila<E> implements Queue<E> {
 		}
 		catch(EmptyStackException e) { e.printStackTrace(); } 
 	}
+	
 	public E dequeue()  throws EmptyQueueException{
 		if(pila.isEmpty()) throw new EmptyQueueException("Error, no se puede desapilar de una cola vacia");
 		E retorno=null;
@@ -32,6 +38,7 @@ public class ColaConPila<E> implements Queue<E> {
 		catch (EmptyStackException e) { e.printStackTrace(); } 
 		return retorno;
 	}
+
 	public E front() throws EmptyQueueException{
 		if(pila.isEmpty()) throw new EmptyQueueException("Error, no se puede desapilar de una cola vacia");
 		E retorno=null;
