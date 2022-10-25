@@ -55,15 +55,20 @@ public class Heap<K, V> implements PriorityQueue<K, V> {
 	public Entry<K,V> insert(K key,V value) throws InvalidKeyException{
 		checkKey(key);
 		Entrada<K,V> nuevaEntrada = new Entrada<K,V>(key, value);
+		Entrada<K,V> padre, actual;
 		if(size == elementos.length -1 ) extenderArreglo();
 		size++;
 		elementos[size] = nuevaEntrada;
 		int posicion = size;
-		while(posicion!= 1 && comparador.compare( elementos[ posicion/2 ].getKey() , elementos[posicion].getKey()) > 0) {
-			nuevaEntrada = elementos[posicion/2];
-			elementos[ posicion/2 ] = elementos [posicion];
+		padre = elementos[posicion/2];
+		actual = elementos[posicion];
+		while(posicion!= 1 && comparador.compare(padre.getKey() , actual.getKey()) > 0) {
+			nuevaEntrada = padre;
+			elementos[ posicion/2 ] = actual;
 			elementos[ posicion ] = nuevaEntrada ;
 			posicion = posicion/2 ;
+			padre = elementos[posicion/2];
+			actual = elementos[posicion];
 		}
 		return elementos[posicion];
 	}
