@@ -11,7 +11,7 @@ import java.util.Vector;
 import org.junit.Test;
 import org.junit.Before;
 
-import Entrada.Entry;
+import Auxiliares.Entry;
 import Excepciones.InvalidKeyException;
 import Excepciones.InvalidEntryException;
 
@@ -23,7 +23,7 @@ public class DictionaryTest {
 
 	private Dictionary<Integer, Integer> getDictionary() {
 
-		return new DiccionarioABB<Integer, Integer>();
+		return new DiccionarioConHashAbierto<Integer, Integer>();
 
 	}
 
@@ -40,64 +40,64 @@ public class DictionaryTest {
                     Entry<Integer, Integer> en;		
 		// Testeando si insert() actualiza el size correctamente.
 
-				assertTrue("Tamaño de Diccionario justo después de ser creada != 0",
+				assertTrue("Tamaï¿½o de Diccionario justo despuï¿½s de ser creada != 0",
 						s.size() == 0);
 				try {
 					s.insert(0, 0);
-					assertTrue("Tamaño de Diccionario luego de insertar una vez != 1",
+					assertTrue("Tamaï¿½o de Diccionario luego de insertar una vez != 1",
 							s.size() == 1);
 
 					s.insert(0, 1);
 
-					assertTrue("Tamaño de Diccionario luego de insertar dos veces != 2",
+					assertTrue("Tamaï¿½o de Diccionario luego de insertar dos veces != 2",
 							s.size() == 2);
 
 					s.insert(1, 2);
 
-					assertTrue("Tamaño de Diccionario luego de insertar tres veces != 3",
+					assertTrue("Tamaï¿½o de Diccionario luego de insertar tres veces != 3",
 							s.size() == 3);
 
-					// Testeando que el método remove() actualice el size, y que find(K key) no lo haga.
+					// Testeando que el mï¿½todo remove() actualice el size, y que find(K key) no lo haga.
 
 					s.findAll(0);
-					assertTrue("Tamaño de Diccionario cambió al invocar get()",
+					assertTrue("Tamaï¿½o de Diccionario cambiï¿½ al invocar get()",
 							s.size() == 3);
 
 					en=s.find(0);
-					assertTrue("Tamaño de Diccionario cambió al invocar get()",
+					assertTrue("Tamaï¿½o de Diccionario cambiï¿½ al invocar get()",
 							s.size() == 3);
 
 
 					s.remove(en);
 
 					assertTrue(
-							"Tamaño de Diccionario luego de eliminar una entrada es != 2",
+							"Tamaï¿½o de Diccionario luego de eliminar una entrada es != 2",
 							s.size() == 2);
 
 					en=s.find(0);
 				
-					assertTrue("Tamaño de Diccionario cambió al invocar get()",
+					assertTrue("Tamaï¿½o de Diccionario cambiï¿½ al invocar get()",
 							s.size() == 2);
 
 					s.remove(en);
 
-					assertTrue("Tamaño de Diccionario luego de eliminar es != 1",
+					assertTrue("Tamaï¿½o de Diccionario luego de eliminar es != 1",
 							s.size() == 1);
 
 					en=s.find(1);
 					
-					assertTrue("Tamaño de Diccionario cambió al invocar get()",
+					assertTrue("Tamaï¿½o de Diccionario cambiï¿½ al invocar get()",
 							s.size() == 1);
 
 					s.remove(en);
 
-					assertTrue("Tamaño de Diccionario luego de eliminar es != 0",
+					assertTrue("Tamaï¿½o de Diccionario luego de eliminar es != 0",
 							s.size() == 0);
 
 				} catch (InvalidKeyException e) {
-					fail("Los métodos find(), findAll() e insert() no deberían lanzar la excepción InvalidKeyException para una clave válida.");
+					fail("Los mï¿½todos find(), findAll() e insert() no deberï¿½an lanzar la excepciï¿½n InvalidKeyException para una clave vï¿½lida.");
 				} catch (InvalidEntryException e) {
-					fail("El método remove() no debería lanzar la excepción InvalidEntryException para una entrada válida.");
+					fail("El mï¿½todo remove() no deberï¿½a lanzar la excepciï¿½n InvalidEntryException para una entrada vï¿½lida.");
 				}
 	}
 	
@@ -110,27 +110,27 @@ public class DictionaryTest {
 		
 	  try {
 
-			assertTrue("EL Diccionario no está vacío justo después de ser creado",
+			assertTrue("EL Diccionario no estï¿½ vacï¿½o justo despuï¿½s de ser creado",
 					s.isEmpty());
 
 			s.insert(0, 0);
 
-			assertTrue("El Diccionario está vacía después de insertar 1 elemento",
+			assertTrue("El Diccionario estï¿½ vacï¿½a despuï¿½s de insertar 1 elemento",
 					!s.isEmpty());
 
 			s.insert(0, 1);
 
-			assertTrue("El Diccionario está vacía después de insertar 2 elementos",
+			assertTrue("El Diccionario estï¿½ vacï¿½a despuï¿½s de insertar 2 elementos",
 					!s.isEmpty());
 
 			s.insert(1, 0);
 
-			assertTrue("El Diccionario está vacía después de insertar 3 elementos",
+			assertTrue("El Diccionario estï¿½ vacï¿½a despuï¿½s de insertar 3 elementos",
 					!s.isEmpty());
 
 		} catch (InvalidKeyException e) {
 
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 		}
 		
 		try {
@@ -138,52 +138,52 @@ public class DictionaryTest {
 			s.findAll(0);
 
 			assertTrue(
-					"El Diccionario está vacío después de invocar findAll() teniendo 3 elementos",
+					"El Diccionario estï¿½ vacï¿½o despuï¿½s de invocar findAll() teniendo 3 elementos",
 					!s.isEmpty());
 
 			en=s.find(1);
 
 			assertTrue(
-					"El Diccionario está vacío después de invocar find() teniendo 3 elementos",
+					"El Diccionario estï¿½ vacï¿½o despuï¿½s de invocar find() teniendo 3 elementos",
 					!s.isEmpty());
 
 			s.remove(en);
 
 			assertTrue(
-					"El Diccionario está vacío después de eliminar 1 elemento, quedando 2.",
+					"El Diccionario estï¿½ vacï¿½o despuï¿½s de eliminar 1 elemento, quedando 2.",
 					!s.isEmpty());
 
 			en=s.find(0);
 
 			assertTrue(
-					"El Diccionario está vacío después de invocar find() teniendo 2 elementos",
+					"El Diccionario estï¿½ vacï¿½o despuï¿½s de invocar find() teniendo 2 elementos",
 					!s.isEmpty());
 
 			s.remove(en);
 
 			assertTrue(
-					"El Diccionario está vacío después de eliminar 1 elemento, quedando 1.",
+					"El Diccionario estï¿½ vacï¿½o despuï¿½s de eliminar 1 elemento, quedando 1.",
 					!s.isEmpty());
 
 			en=s.find(0);
 
 			assertTrue(
-					"El Diccionario está vacío después de invocar get(i3) teniendo 1 elemento",
+					"El Diccionario estï¿½ vacï¿½o despuï¿½s de invocar get(i3) teniendo 1 elemento",
 					!s.isEmpty());
 
 			s.remove(en);
 
 			assertTrue(
-					"EL Diccionario no está vacío después de eliminar todos los elementos que tenía.",
+					"EL Diccionario no estï¿½ vacï¿½o despuï¿½s de eliminar todos los elementos que tenï¿½a.",
 					s.isEmpty());
 
 		} catch (InvalidKeyException e) {
 
-			fail("El método find() o findAll() no debería lanzar InvalidKeyException con una clave válida.");
+			fail("El mï¿½todo find() o findAll() no deberï¿½a lanzar InvalidKeyException con una clave vï¿½lida.");
 
 		} catch (InvalidEntryException e) {
 
-			fail("El método remove() no debería lanzar InvalidEntryException con una entrada válida.");
+			fail("El mï¿½todo remove() no deberï¿½a lanzar InvalidEntryException con una entrada vï¿½lida.");
 
 		}
 
@@ -202,22 +202,22 @@ public class DictionaryTest {
 		Entry<Integer,Integer> en;
 		boolean esta;
 		
-		//Clave inválida
+		//Clave invï¿½lida
 		try {
 			 s.find(null);
-			 fail("El método find debería haber lanzado la excepción InvalidKeyException para una clave nula");
+			 fail("El mï¿½todo find deberï¿½a haber lanzado la excepciï¿½n InvalidKeyException para una clave nula");
 		} catch (InvalidKeyException e) {	
 		}
 		
-		// Diccionario vacío.
+		// Diccionario vacï¿½o.
 		try {
 
 			en = s.find(1);
 			assertTrue(
-					"El método find() debería devolver nulo cuando la clave no está en el Diccionario.",
+					"El mï¿½todo find() deberï¿½a devolver nulo cuando la clave no estï¿½ en el Diccionario.",
 					en == null);
 		} catch (InvalidKeyException e) {
-			fail("El método find() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo find() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 		}
 			
 		
@@ -236,7 +236,7 @@ public class DictionaryTest {
             
 		   } catch (InvalidKeyException e) {
 
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 
 		   }
 
@@ -247,17 +247,17 @@ public class DictionaryTest {
 			{ en=s.find(i);
 			  while (en!=null)
 			  {   esta=buscoEnVectorYEliminar(en.getKey(), en.getValue(),V);
-				  assertTrue("El método find() no funciona correctamente", esta);
+				  assertTrue("El mï¿½todo find() no funciona correctamente", esta);
 				  s.remove(en);
 				  en=s.find(i);
 			  }
 			  }
-			assertTrue("El método find() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
+			assertTrue("El mï¿½todo find() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
 			
 		} catch (InvalidKeyException e) {
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 		} catch (InvalidEntryException e) {
-			fail("El método remove() no debería lanzar InvalidEntryException con una entrada válida.");
+			fail("El mï¿½todo remove() no deberï¿½a lanzar InvalidEntryException con una entrada vï¿½lida.");
 		}
 
 		
@@ -296,22 +296,22 @@ public class DictionaryTest {
 		Entry<Integer,Integer> en;
 		boolean esta;
 		
-		//Clave inválida
+		//Clave invï¿½lida
 		try {
 			 s.findAll(null);
-			 fail("El método findAll() debería haber lanzado la excepción InvalidKeyException para una clave nula");
+			 fail("El mï¿½todo findAll() deberï¿½a haber lanzado la excepciï¿½n InvalidKeyException para una clave nula");
 		} catch (InvalidKeyException e) {	
 		}
 		
-		// Diccionario vacío.
+		// Diccionario vacï¿½o.
 		try {
 
 			it = s.findAll(1).iterator();
 			assertTrue(
-					"El método findAll() debería devolver un iterable sin elementos cuando la clave no está en el Diccionario.",
+					"El mï¿½todo findAll() deberï¿½a devolver un iterable sin elementos cuando la clave no estï¿½ en el Diccionario.",
 					!it.hasNext());
 		} catch (InvalidKeyException e) {
-			fail("El método findAll() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo findAll() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 		}
 			
 			
@@ -330,7 +330,7 @@ public class DictionaryTest {
             
 		   } catch (InvalidKeyException e) {
 
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 
 		   }
 
@@ -342,19 +342,19 @@ public class DictionaryTest {
 			  while (it.hasNext())
 			  {   en=it.next();
 			      esta=buscoEnVectorYEliminar(en.getKey(), en.getValue(),V);
-				  assertTrue("El método findAll() no funciona correctamente", esta);
+				  assertTrue("El mï¿½todo findAll() no funciona correctamente", esta);
 		      }
 			}
-			assertTrue("El método findAll() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
+			assertTrue("El mï¿½todo findAll() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
 		} catch (InvalidKeyException e) {
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 		}
 
 		
 		
 	}
 	
-	/* TESTEANDO LOS MÉTODOS INSERT/REMOVE*/
+	/* TESTEANDO LOS Mï¿½TODOS INSERT/REMOVE*/
 	
 	@Test
 	public void Insert_Remove() {
@@ -366,17 +366,17 @@ public class DictionaryTest {
 		Entry<Integer,Integer> en=null;
 		boolean esta;
 		
-		//Clave inválida
+		//Clave invï¿½lida
 		try {
 			 s.insert(null,3);
-			 fail("El método insert debería haber lanzado la excepción InvalidKeyException para una clave inválida");
+			 fail("El mï¿½todo insert deberï¿½a haber lanzado la excepciï¿½n InvalidKeyException para una clave invï¿½lida");
 	    } catch (InvalidKeyException e) {	
 		}
 		
-		//Entrada inválida
+		//Entrada invï¿½lida
 		try {
 			 s.remove(null);
-			 fail("El método remove debería haber lanzado la excepción InvalidEntryException para una entry inválida");
+			 fail("El mï¿½todo remove deberï¿½a haber lanzado la excepciï¿½n InvalidEntryException para una entry invï¿½lida");
 		} catch (InvalidEntryException e) {	
 		}
 		
@@ -388,16 +388,16 @@ public class DictionaryTest {
 
 		} catch (InvalidKeyException e) {
 
-			fail("El método insert() o find() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() o find() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 
 		} catch (InvalidEntryException e) {
-			fail("El método remove() no debería lanzar InvalidEntryException con una entrada válida.");
+			fail("El mï¿½todo remove() no deberï¿½a lanzar InvalidEntryException con una entrada vï¿½lida.");
 		}
 		
-		//Intentando eliminar una entrada que no está en el diccionario
+		//Intentando eliminar una entrada que no estï¿½ en el diccionario
 		try {
 			  s.remove(en);	
-			  fail("El método remove() debería lanzar InvalidEntryException con una entrada que no se encuentra en el diccionario.");
+			  fail("El mï¿½todo remove() deberï¿½a lanzar InvalidEntryException con una entrada que no se encuentra en el diccionario.");
 
 		} catch (InvalidEntryException e) {
 			
@@ -418,7 +418,7 @@ public class DictionaryTest {
             
 		   } catch (InvalidKeyException e) {
 
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 
 		   }
 
@@ -429,25 +429,25 @@ public class DictionaryTest {
 			{ en=s.find(i);
 			  while (en!=null)
 			  {   esta=buscoEnVectorYEliminar(en.getKey(), en.getValue(),V);
-				  assertTrue("El método insert() no funciona correctamente", esta);
+				  assertTrue("El mï¿½todo insert() no funciona correctamente", esta);
 				  s.remove(en);
 				  en=s.find(i);
 			  }
 			  }
-			assertTrue("El método insert() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
+			assertTrue("El mï¿½todo insert() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
 			
 		} catch (InvalidKeyException e) {
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 		} catch (InvalidEntryException e) {
-			fail("El método remove() no debería lanzar InvalidEntryException con una entrada válida.");
+			fail("El mï¿½todo remove() no deberï¿½a lanzar InvalidEntryException con una entrada vï¿½lida.");
 		}
 		
-     assertTrue("El método remove() no funciona correctamente", s.isEmpty());
+     assertTrue("El mï¿½todo remove() no funciona correctamente", s.isEmpty());
 		
 	}
 	
 
-	/* TESTEANDO EL MÉTODO ENTRIES*/
+	/* TESTEANDO EL Mï¿½TODO ENTRIES*/
 	
 	@Test
 	public void entries() {
@@ -458,8 +458,8 @@ public class DictionaryTest {
 		Random r= new Random();
 		boolean esta;
 		
-	    //Diccionario vacío
-		assertTrue("Entris no funciona correctamente para un diccionario vacío", ((s.entries()!=null)&&(!s.entries().iterator().hasNext())));
+	    //Diccionario vacï¿½o
+		assertTrue("Entris no funciona correctamente para un diccionario vacï¿½o", ((s.entries()!=null)&&(!s.entries().iterator().hasNext())));
 			
 			
 		// Insertando 1000 elementos
@@ -477,7 +477,7 @@ public class DictionaryTest {
             
 		   } catch (InvalidKeyException e) {
 
-			fail("El método insert() no debería lanzar InvalidkeyException con una clave válida.");
+			fail("El mï¿½todo insert() no deberï¿½a lanzar InvalidkeyException con una clave vï¿½lida.");
 
 		   }
 
@@ -485,9 +485,9 @@ public class DictionaryTest {
 
 		for (Entry<Integer, Integer> entrada: s.entries())
 				{    esta=buscoEnVectorYEliminar(entrada.getKey(), entrada.getValue(),V);
-					 assertTrue("El método entries() no funciona correctamente", esta);
+					 assertTrue("El mï¿½todo entries() no funciona correctamente", esta);
 		 	     }
-			assertTrue("El método entries() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
+			assertTrue("El mï¿½todo entries() no funciona correctamente",((V.get(0).size()==0)&&(V.get(1).size()==0)));
 			
 	    		
 	}
