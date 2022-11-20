@@ -1,8 +1,8 @@
 package TDAMapeo;
 
-import Entrada.Entry;
+import Auxiliares.Entry;
 import Excepciones.InvalidKeyException;
-import Entrada.Entrada;
+import Auxiliares.Entrada;
 import TDALista.PositionList;
 import TDALista.ListaDoblementeEnlazada;
 
@@ -16,7 +16,7 @@ public class MapeoConHashCerrado<K, V> implements Map<K, V> {
 		n=0;
 		DISPONIBLE = new Entrada<K,V>(null, null);
 		N=13;
-		arreglo = (Entrada<K,V>[]) new Entrada[13];
+		arreglo = (Entrada<K,V>[]) new Entrada[1000];
 	}
 	@Override
 	public int size() {

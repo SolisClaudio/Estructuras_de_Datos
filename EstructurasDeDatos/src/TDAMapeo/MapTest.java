@@ -33,7 +33,7 @@ public class MapTest {
 
 	private Map<Integer, Integer> getMapeo() {
 
-		return new MapeoConHashAbierto<Integer, Integer>();
+		return new MapeoConHashCerrado<Integer, Integer>();
 
 	}
 
